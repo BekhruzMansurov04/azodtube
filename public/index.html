@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AZODTUBE</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <button id="menuButton">☰</button>
+        <h1>AZOD<span>TUBE</span></h1>
+    </div>
+
+    <div class="search">
+        <input id="searchInput" placeholder="Qidirish">
+        <button id="searchButton">⌕</button>
+    </div>
+
+    <div class="user-actions">
+        <button id="uploadOpenButton">＋ Yaratish</button>
+        <button id="accountButton">👤</button>
+        <span id="userInfo">Mehmon</span>
+    </div>
+</header>
+
+<aside id="sidebar" class="sidebar">
+    <button data-section="home">⌂ Bosh sahifa</button>
+    <button data-section="shorts">▶ Shorts</button>
+    <button data-section="gaming">🎮 Gaming</button>
+    <button data-section="music">♫ Musiqa</button>
+    <hr>
+    <button id="historyButton">◷ Tarix</button>
+    <button id="accountSidebar">👤 Akkaunt</button>
+    <button id="uploadSidebar">＋ Video yuklash</button>
+</aside>
+
+<main id="main">
+    <nav class="categories">
+        <button data-section="home">Hammasi</button>
+        <button data-section="gaming">Gaming</button>
+        <button data-section="music">Musiqa</button>
+        <button data-section="shorts">Shorts</button>
+        <button data-section="other">Boshqa</button>
+    </nav>
+
+    <h2 id="sectionTitle">Tavsiya etilgan videolar</h2>
+    <p id="status"></p>
+
+    <section id="videos" class="video-grid">
+        Yuklanmoqda...
+    </section>
+</main>
+
+<!-- ACCOUNT -->
+<div id="accountPanel" class="overlay hidden">
+    <div class="modal">
+        <button class="close" data-close="accountPanel">✕</button>
+        <h2>AZODTUBE akkaunti</h2>
+        <input id="username" placeholder="Username">
+        <input id="password" type="password" placeholder="Parol">
+        <button id="registerButton" class="primary">Akkaunt yaratish</button>
+        <button id="loginButton">Kirish</button>
+        <button id="logoutButton">Chiqish</button>
+        <p>Username 3-20 belgi, parol kamida 8 belgi.</p>
+    </div>
+</div>
+
+<!-- UPLOAD -->
+<div id="uploadPanel" class="overlay hidden">
+    <div class="modal">
+        <button class="close" data-close="uploadPanel">✕</button>
+        <h2>Video yuklash</h2>
+
+        <input id="videoTitle" placeholder="Video nomi">
+        <textarea id="videoDescription" placeholder="Video haqida"></textarea>
+
+        <select id="videoCategory">
+            <option value="gaming">Gaming</option>
+            <option value="music">Musiqa</option>
+            <option value="other">Boshqa</option>
+        </select>
+
+        <label>
+            <input id="isShort" type="checkbox">
+            Shorts sifatida yuklash
+        </label>
+
+        <input id="videoFile" type="file" accept="video/*">
+        <button id="uploadButton" class="primary">Yuklash</button>
+    </div>
+</div>
+
+<!-- WATCH -->
+<div id="watchPanel" class="overlay hidden">
+    <div class="watch-modal">
+        <button class="close" data-close="watchPanel">✕</button>
+        <div id="watchPlayer"></div>
+
+        <h2 id="watchTitle"></h2>
+        <p id="watchAuthor"></p>
+        <p id="watchDescription"></p>
+
+        <div class="watch-actions">
+            <button id="likeButton">👍 Like</button>
+            <span id="likeCount">0</span>
+            <button id="subscribeButton">Obuna bo‘lish</button>
+        </div>
+
+        <h3>Izohlar</h3>
+        <div class="comment-form">
+            <input id="commentInput" placeholder="Izoh yozing...">
+            <button id="commentButton">Yuborish</button>
+        </div>
+        <div id="comments"></div>
+    </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

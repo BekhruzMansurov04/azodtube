@@ -1,0 +1,542 @@
+
+/* =================================
+   AZODTUBE - PREMIUM DESIGN
+================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #090b10;
+    --surface: #11151d;
+    --surface2: #191f2a;
+    --hover: #252d3b;
+    --text: #f5f7ff;
+    --muted: #929bad;
+    --red: #ff3030;
+    --border: rgba(255,255,255,.08);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: var(--text);
+    background: var(--surface2);
+    padding: 11px 17px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+button:hover {
+    background: var(--hover);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+input, textarea, select {
+    background: var(--surface2);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 13px 15px;
+    border-radius: 12px;
+    outline: none;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--red);
+}
+
+/* HEADER */
+
+.topbar {
+    height: 72px;
+    position: fixed;
+    z-index: 20;
+    inset: 0 0 auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 0 28px;
+    background: rgba(9,11,16,.94);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.brand button {
+    font-size: 21px;
+    background: transparent;
+}
+
+.brand h1 {
+    font-size: 25px;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    font-weight: 900;
+}
+
+.brand h1 span {
+    color: var(--red);
+}
+
+.search {
+    display: flex;
+    width: 45%;
+    max-width: 650px;
+    height: 44px;
+}
+
+.search input {
+    flex: 1;
+    min-width: 0;
+    border-radius: 25px 0 0 25px;
+    padding-left: 22px;
+    background: #151923;
+    border: 1px solid var(--border);
+}
+
+.search button {
+    width: 65px;
+    border-radius: 0 25px 25px 0;
+    font-size: 23px;
+    background: var(--surface2);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#uploadOpenButton {
+    background: #202633;
+    border-radius: 25px;
+}
+
+#accountButton {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #292f40;
+    font-size: 18px;
+}
+
+#userInfo {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    bottom: 0;
+    width: 235px;
+    padding: 22px 13px;
+    background: #0d1017;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    transition: .25s;
+    z-index: 15;
+}
+
+.sidebar button {
+    width: 100%;
+    display: block;
+    text-align: left;
+    background: transparent;
+    padding: 15px 17px;
+    margin-bottom: 7px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+    background: #222a38;
+}
+
+.sidebar hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 18px 0;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* MAIN */
+
+#main {
+    margin-left: 235px;
+    padding: 105px 30px 40px;
+    transition: .25s;
+}
+
+#main.expanded {
+    margin-left: 0;
+}
+
+.categories {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.categories button {
+    white-space: nowrap;
+    background: #191f2a;
+    border-radius: 10px;
+    padding: 11px 20px;
+}
+
+.categories button.active {
+    background: white;
+    color: #111;
+}
+
+#sectionTitle {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 23px;
+    letter-spacing: -.5px;
+}
+
+#status {
+    color: var(--muted);
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+/* VIDEO GRID */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px 22px;
+}
+
+.video-card {
+    min-width: 0;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+}
+
+.thumbnail {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #202633;
+    transition: .25s;
+}
+
+.video-card:hover .thumbnail {
+    border-radius: 10px;
+}
+
+.video-info {
+    padding: 13px 4px;
+}
+
+.video-info h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 9px;
+    font-weight: 700;
+}
+
+.video-info p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* SHORTS */
+
+.video-grid.shorts {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 220px));
+    gap: 25px;
+}
+
+.video-grid.shorts .thumbnail {
+    aspect-ratio: 9 / 16;
+    border-radius: 15px;
+}
+
+/* MODALS */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal, .watch-modal {
+    position: relative;
+    background: #151a24;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal h2 {
+    margin-bottom: 22px;
+    font-size: 23px;
+}
+
+.modal input:not([type=checkbox]):not([type=file]),
+.modal textarea,
+.modal select {
+    width: 100%;
+    margin: 8px 0;
+}
+
+.modal textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modal input[type=file] {
+    display: block;
+    max-width: 100%;
+    margin: 18px 0;
+}
+
+.modal p {
+    color: var(--muted);
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.modal button {
+    margin: 5px;
+}
+
+.primary {
+    background: var(--red);
+    color: white;
+}
+
+.primary:hover {
+    background: #dc2525;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: transparent;
+    font-size: 21px;
+}
+
+/* WATCH PLAYER */
+
+.watch-modal {
+    max-width: 950px;
+}
+
+#watchPlayer iframe,
+#watchPlayer video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 13px;
+    background: black;
+}
+
+.watch-modal h2 {
+    margin: 20px 0 12px;
+}
+
+.watch-modal p {
+    color: var(--muted);
+    margin: 9px 0;
+}
+
+.watch-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 28px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.comment-form input {
+    flex: 1;
+    min-width: 0;
+}
+
+#comments p {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343c4b;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1100px) {
+    .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 650px) {
+    .topbar {
+        height: 62px;
+        padding: 0 10px;
+        gap: 7px;
+    }
+
+    .brand {
+        gap: 5px;
+    }
+
+    .brand h1 {
+        font-size: 17px;
+    }
+
+    .user-actions {
+        gap: 5px;
+    }
+
+    .user-actions #userInfo {
+        display: none;
+    }
+
+    .user-actions button {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .search {
+        width: auto;
+        flex: 1;
+        height: 38px;
+    }
+
+    .search input {
+        padding-left: 10px;
+        font-size: 12px;
+    }
+
+    .search button {
+        width: 38px;
+        font-size: 18px;
+    }
+
+    .sidebar {
+        top: 62px;
+        width: 75px;
+    }
+
+    .sidebar button {
+        font-size: 11px;
+        text-align: center;
+        padding: 13px 3px;
+    }
+
+    #main {
+        margin-left: 75px;
+        padding: 85px 12px 25px;
+    }
+
+    #main.expanded {
+        margin-left: 0;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .categories {
+        gap: 7px;
+    }
+
+    .categories button {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    #sectionTitle {
+        font-size: 20px;
+    }
+
+    .watch-modal, .modal {
+        padding: 25px 14px;
+    }
+
+    .comment-form {
+        flex-wrap: wrap;
+    }
+}
